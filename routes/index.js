@@ -176,8 +176,9 @@ router.post('/', function(req, res) {
 		user.loggedIn = true;
 		// 在session中儲存訊息
 		req.session.user = user;
-		console.log(req.session.user.loggedIn);
-		console.log(req.session.user.isVIP);
+		// 弹出提示窗口
+		res.send('<script>alert("登入成功"); window.location.href = "/";</script>');
+
 		res.render('index', { 
 			title: 'XX Studio',
 			xxstudio: 'XX Studio',
@@ -187,7 +188,13 @@ router.post('/', function(req, res) {
 
 	  } else {
 		// 登入失敗
-		return res.status(401).send('Invalid credentials');
+		res.send('<script>alert("登入失敗"); window.location.href = "/login";</script>');
+		res.render('login', { 
+			title: 'login',
+			xxstudio: 'XX Studio',
+			loggedIn: req.session.user.loggedIn,
+			isVIP: req.session.user.isVIP
+		});
 	  }
 	});
   
