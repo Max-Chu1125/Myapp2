@@ -1,5 +1,13 @@
 var express = require('express');
 var router = express.Router();
+const session = require('express-session');
+
+// 配置会话中间件
+router.use(session({
+	secret: '123123123123',
+	resave: false,
+	saveUninitialized: true,
+  }));
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -140,22 +148,26 @@ router.post('/', function(req, res) {
 		return res.status(500).send('Server Error');
 	  }
 	  if (results.length > 0) {
-		var user = results[0]; // 假设只取第一条记录作为用户信息
-		var loggedIn = true;
-		var isVIP = false;
-		if(user.role=='3'){
-			isVIP = true;
-			console.log('isVIP：', isVIP);
-		}
-
+		var client = results[0]; // 假设只取第一条记录作为用户信息
+		const user = {
+			id: 1,
+			username: client.email,
+			role: client.role
+		  };
+		  
+		user.isVIP = (user.role == '3');
+		user.loggedIn = true;
+		// 在session中儲存訊息
+		req.session.user = user;
+		console.log(req.session.user.loggedIn);
+		console.log(req.session.user.isVIP);
 		res.render('index', { 
 			title: 'XX Studio',
 			xxstudio: 'XX Studio',
-			loggedIn: loggedIn,
-			isVIP: isVIP
+			loggedIn: req.session.user.loggedIn,
+			isVIP: req.session.user.isVIP
 		});
-		// // 登入成功后重定向到首页
-		// res.redirect('/');
+
 	  } else {
 		// 登入失敗
 		return res.status(401).send('Invalid credentials');
