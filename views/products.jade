@@ -1,0 +1,90 @@
+//- doctype html
+//- html
+//-   head
+//-     title= title
+//-     link(rel='stylesheet', href='../stylesheets/style.css')
+//-     // 導入js文件
+//-     // script(type='text/javascript', src='script.js')
+//-   body
+//-     h1 第二個頁面！
+//-     h1= title
+//-     p Welcome to #{ironMan30}  #{theTwenty}
+//-     h2= haha
+//-     form(action='/postdemo', method='post')
+//-       input(type='text', name='userName', value='BigQ')
+//-       input(type='password', name='password', value='')
+//-       input(type='submit', value='Submit')
+
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    h1 第二個頁面！
+    h1= title
+    p Welcome to #{ironMan30}#{theTwenty}
+    h2= haha
+doctype html
+html(lang="en")
+  head
+    title= title
+    link(rel='stylesheet', href='../stylesheets/style.css')
+    title 產品列表
+  body
+    h1= title
+    // 導航欄
+    nav
+      ul
+        li
+          a(href="http://localhost:3000/") 首頁
+        li
+          a(href="http://localhost:3000/products") 商品
+        li
+          a(href="http://localhost:3000/cart") 購物車
+        li
+          a(href="http://localhost:3000/login") 登入
+        li
+          a(href="http://localhost:3000/registration") 註冊
+
+    h2 產品列表
+    ul.product-grid
+      li
+        a(href="product1.html")
+          div.product-item
+            div.product-image
+              img(src="/images/product1.jpg", alt="商品1")
+            div.product-details
+              h3 商品1
+              p 商品1的描述
+      li
+        a(href="product2.html")
+          div.product-item
+            div.product-image
+              img(src="/images/product2.jpg", alt="商品2")
+            div.product-details
+              h3 商品2
+              p 商品2的描述
+      li
+        a(href="product3.html")
+          div.product-item
+            div.product-image
+              img(src="/images/product3.jpg", alt="商品3")
+            div.product-details
+              h3 商品3
+              p 商品3的描述
+    //聯絡我們
+    div.contact-block
+      a(href="http://localhost:3000/contact")
+        h3 聯絡我們
+      p
+        | 有任何問題或疑慮嗎？
+        br
+        | 請隨時聯絡我們。
+
+      
+
+
+    // 頁腳
+    footer
+      p 版權所有 &copy; 2023 #{xxstudio}

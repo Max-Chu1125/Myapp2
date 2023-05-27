@@ -1,0 +1,54 @@
+//- html
+//-   head
+//-     title= title
+//-     link(rel='stylesheet', href='../stylesheets/style.css')
+//-   body
+//-     h1 第二個頁面！
+//-     h1= title
+//-     p Welcome to #{ironMan30}#{theTwenty}
+//-     h2= haha
+doctype html
+html(lang="en")
+  head
+    title= title
+    link(rel='stylesheet', href='../stylesheets/style.css')
+    title 購物網站
+    style
+      // 在這裡可以添加 CSS 樣式
+  body
+    header
+      // 頁面標題
+      h1= title
+
+      // 導航欄
+      nav
+        ul
+          li
+            a(href="http://localhost:3000/") 首頁
+          li
+            a(href="http://localhost:3000/products") 商品
+          li
+            a(href="http://localhost:3000/cart") 購物車
+          li
+            a(href="http://localhost:3000/contact") 聯絡我們
+          li
+            a(href="http://localhost:3000/login") 登入
+          li
+            a(href="http://localhost:3000/registration") 註冊
+    
+    section.registration-section
+      .registration-container
+        h2 註冊會員
+        form
+          label(for="registration-email") 電子郵件：
+          input(type="email", id="registration-email", required)
+          br
+          label(for="registration-password") 密碼：
+          input(type="password", id="registration-password", required)
+          br
+          button(type="submit") 註冊
+
+    // 頁腳
+    footer
+      p 版權所有 &copy; 2023 #{xxstudio}
+

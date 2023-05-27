@@ -1,0 +1,131 @@
+
+//- doctype html
+//- html
+//-   head
+//-     title= title
+    
+//-     // 導入js文件
+//-     // script(type='text/javascript', src='script.js')
+//-   body
+//-     h1= title
+//-     p Welcome to #{ironMan30}  #{theTwenty}
+//-     h2= haha
+//-     div
+//-       // 新增在<div>的內容
+//-       h2 #{ironMan30} h2代表heading標題樣式2
+//-       p p代表段落文字 paragraph of text
+//-       // 以下新增第二個<div>
+//-       // 新增一個id="onlyID"
+//-       div.inside#onlyId
+//-         h3 鐵人30天 h3是更小一點的大標題
+//-         p p一樣是代表文字喔！
+//-         // 新增一個網頁按鈕
+//-         button(type="button", onclick="myJSFunction()") 網頁按鈕
+//-       // 再新增一個inside
+//-       div.inside
+//-         h3 我們又新增了一個class inside的div
+//-         p p一樣是代表文字喔！
+//-       // 增加<a>的超連結
+//-       a(href="https://ithelp.ithome.com.tw/articles/10222155")
+//-         | 30天挑戰文章
+//-       a(href="http://localhost:3000/downloadimg")
+//-         | 下載圖片
+//-       a(href="http://localhost:3000/30days")
+//-         | 第二頁網頁
+
+
+//-       // 再新增第二個inside在這
+//-       div.inside
+//-         // 加法按鈕
+//-         button(type="button", onclick="numberAdd()") +1按鈕
+//-         h3 我們又新增了第二個class inside的div
+//-         // 把原本的<p>內容改掉，增加id
+//-         p#addResult numberAdd成果會在這喔
+
+
+
+//-     // 新增一個JS語言撰寫區
+//-     script.
+//-       // JS內容寫在這 
+//-       // alert('還沒30天我已經學會了HTML與CSS啦！')
+//-       function myJSFunction(){
+//-         document.getElementById("onlyId").innerHTML = "<h2>按下按鈕替換id='onlyId'後的內容</h2>";
+//-       }
+
+//-       var n = 0;
+//-       function numberAdd(){
+//-         n = n+1
+//-         // 增加一個for迴圈
+//-         for (var i = 0; i < n; i++) {
+//-           document.getElementById("addResult").innerHTML +=  "i:"+ i + ",n:" + n + "<br/>"
+//-         }
+//-         return
+//-       }
+
+
+doctype html
+html(lang="en")
+  head
+    title= title
+    link(rel='stylesheet', href='../stylesheets/style.css')
+    title 購物網站
+    style
+      // 在這裡可以添加 CSS 樣式
+  body
+    header
+    // 頁面標題
+    h1= title
+
+    // 導航欄
+    nav
+      ul
+        li
+          a(href="http://localhost:3000/") 首頁
+        li
+          a(href="http://localhost:3000/products") 商品
+        li
+          a(href="http://localhost:3000/cart") 購物車
+        li
+          a(href="http://localhost:3000/contact") 聯絡我們
+        li
+          a(href="http://localhost:3000/login") 登入
+        li
+          a(href="http://localhost:3000/registration") 註冊
+
+    // 主要內容
+    main
+      section
+        h2 最新商品
+        div
+          // 商品列表
+          div
+            h3 商品名稱
+            p 商品描述
+            p 價格：$99.99
+            button 加入購物車
+          div
+            h3 商品名稱
+            p 商品描述
+            p 價格：$59.99
+            button 加入購物車
+          // 可以添加更多商品
+        
+      // 公司簡介
+      section
+        h2 我們的公司
+        p 我們是一家專注於植物銷售的公司，提供各種高品質的植物產品。我們的產品範圍包括盆栽、多肉植物、花卉、室內和戶外植物等。
+        p 我們的使命是為客戶提供最好的購物體驗，讓他們能夠輕鬆購買高品質的植物產品。我們的團隊致力於提供優質的客戶服務，並與信任和尊重的原則保持一致。
+
+      // 團隊介紹
+      section
+        h2 我們的團隊
+        p 我們的團隊由植物愛好者和專業銷售人員組成，所有團隊成員都對植物有著深厚的熱情和專業知識。
+        ul
+          li 總經理 - 約翰·史密斯
+          li 市場營銷主管 - 瑪麗亞·戈麥斯
+          li 客戶服務代表 - 大衛·弗林特
+          li 產品經理 - 莉莉安·陳
+
+    // 頁腳
+    footer
+      p 版權所有 &copy; 2023 #{xxstudio} 

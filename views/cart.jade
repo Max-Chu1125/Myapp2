@@ -1,0 +1,86 @@
+//- html
+//-   head
+//-     title= title
+//-     link(rel='stylesheet', href='../stylesheets/style.css')
+//-   body
+//-     h1 第二個頁面！
+//-     h1= title
+//-     p Welcome to #{ironMan30}#{theTwenty}
+//-     h2= haha
+doctype html
+html(lang="en")
+  head
+    title= title
+    link(rel='stylesheet', href='../stylesheets/style.css')
+    title 購物車
+    style
+      // 在這裡可以添加 CSS 樣式
+  body
+    header
+    // 頁面標題
+    h1= title
+
+    // 導航欄
+    nav
+      ul
+        li
+          a(href="http://localhost:3000/") 首頁
+        li
+          a(href="http://localhost:3000/products") 商品
+        li
+          a(href="http://localhost:3000/cart") 購物車
+        li
+          a(href="http://localhost:3000/contact") 聯絡我們
+        li
+          a(href="http://localhost:3000/login") 登入
+        li
+          a(href="http://localhost:3000/registration") 註冊
+
+
+    // 頁面標題
+    header
+      h1 購物車
+
+    // 購物車內容
+    main
+      section
+        h2 購物車清單
+        table
+          thead
+            tr
+              th 商品
+              th 價格
+              th 數量
+              th 小計
+              th 操作
+          tbody
+            tr
+              td 商品名稱
+              td $99.99
+              td 1
+              td $99.99
+              td
+                button 移除
+            tr
+              td 商品名稱
+              td $59.99
+              td 2
+              td $119.98
+              td
+                button 移除
+              // 可以添加更多商品
+          tfoot
+            tr
+              td(colspan="3")
+              td
+                strong 總計：
+              td
+                strong $219.97
+
+        // 結帳按鈕
+        div
+          button 結帳
+
+    // 頁腳
+    footer
+      p 版權所有 &copy; 2023 #{xxstudio} 

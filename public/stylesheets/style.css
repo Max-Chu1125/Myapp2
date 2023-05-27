@@ -1,0 +1,344 @@
+body {
+  padding: 150px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f7f7f7;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  right: 0;
+  height: 20px; /* 調整高度為您希望的值 */
+  background-image: linear-gradient(to right, #94A69E 100%, #94A69E 100%, transparent 50%, transparent 50%);
+  background-position: left bottom;
+  background-repeat: repeat-x;
+  z-index: -5;
+}
+
+
+
+a {
+  color: #8e6f64;
+}
+
+/* 以下新增 */
+div {
+  /* background: green; */
+}
+
+/* 以下新增給 class="inside" */
+.inside {
+  background: rgb(255, 211, 100);
+}
+
+/* JS 只對相同 id 的第一個有效 */
+#onlyId {
+  font-size: 24pt;
+}
+
+/* 導航欄設定 */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; /* 設定橫幅高度 */
+  background-color: #3a3a3a;
+  text-align: center;
+  z-index: 999;
+  /* 其他樣式 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav a {
+  display: block;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px;
+  /* 超連結按壓動畫 */
+  position: relative;
+  overflow: hidden;
+  color: #ffffff; /* 設定文字顏色 */
+}
+
+nav a:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%; /* 從中間開始 */
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s cubic-bezier(0.5, 0, 0.5, 1); /* 使用貝茲曲線讓動畫更流暢 */
+}
+
+nav a:hover:before {
+  width: 100%;
+}
+
+nav a:active {
+  transform: translateY(1px);
+}
+
+
+h1, h2, h3 {
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  color: #3a3a3a;
+}
+
+h1 {
+  /* text-align: center; */
+}
+
+h2 {
+  text-align: center;
+}
+
+footer {
+  /* 其他樣式 */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  /* background-color: #94A69E; */
+  color: #8e6f64;
+  text-align: center;
+  padding: 10px;
+  
+  
+}
+
+footer p {
+  margin: 0;
+  /* 其他樣式 */
+  
+}
+/* 產品排版 */
+.product-grid {
+  display: flex;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.product-grid li {
+  list-style: none;
+  text-align: center;
+}
+
+.product-image {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 20px; /* 調整產品間距，這裡設置為 20px */
+}
+
+.product-details {
+  margin-top: 10px;
+}
+/* 聯絡我們 */
+.contact-block {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f7f7f7;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-block h3 {
+  margin-top: 0;
+}
+
+/* 登入系統 */
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* 將表單對齊容器的頂部 */
+  height: 100vh;
+  overflow: hidden; /* 隱藏超出範圍的內容 */
+}
+
+.login-container {
+  max-width: 400px;
+  padding: 80px 160px; /* 增加上方的 padding */
+  margin-top: 0; /* 移除表格的上移效果 */
+  position: relative; /* 設置相對定位 */
+  top: 50%; /* 將表單向下偏移一半的高度 */
+  transform: translateY(-50%);
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container label {
+  margin-bottom: 10px;
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  padding: 20px; /* 增加 input 的 padding */
+  margin-bottom: 10px;
+}
+
+.login-container button {
+  padding: 20px;
+  background-color: #ccc;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #aaa;
+}
+
+.login-container .links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-container .links a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.login-container,
+.registration-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+/* 後台管理 */
+.floating-section {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.floating-container {
+  background-color: #f7f7f7;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.floating-container a {
+ 
+  display: block;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
+
+.main-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  font-size: inherit;
+  height: 60px;
+  width: 100px;
+  background-color: #3a3a3a;
+  color: #FFF;
+  font-size: 16px; /* 設定相同的字體大小 */
+  text-align: center;
+}
+  
+
+.sub-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  font-size: inherit;
+  height: 45px;
+  font-size: 16px;
+  background-color: #94A69E;
+  color: #FFF;
+  position: relative;
+  overflow: hidden; /* 隐藏溢出部分，使边线在子区块内部显示 */
+}
+
+.sub-block::after {
+  content: attr(data-text); /* 使用元素的 data-text 屬性作為內容 */
+  position: absolute;
+  bottom: 0;
+  right: 100%; /* 起始位置設置在右邊界之外 */
+  width: 100%;
+  height: 100%;
+  background-color: #FFF;
+  transform-origin: right bottom;
+  transform: scaleX(0); /* 初始状态下边线不可见 */
+  transition: transform 0.3s ease;
+  font-family: Arial; /* 根據需求個別定義字體 */
+  font-size: 14px; /* 根據需求個別定義字體大小 */
+  color: #000; /* 根據需求個別定義文字顏色 */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 2px; /* 調整文字與底線之間的間距 */
+  /* 其他样式属性 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Microsoft JhengHei", sans-serif;
+  
+}
+
+.sub-block:hover::after {
+  right: 0; /* 悬停時將右邊界位置調整為 0，即逐漸顯示出來 */
+  transform-origin: left bottom; /* 修改為左下角為變化終點 */
+  transform: scaleX(1); /* 悬停時邊線由右向左逐漸變長 */
+}
