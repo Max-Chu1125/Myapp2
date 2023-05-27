@@ -3,9 +3,13 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+	var loggedIn = false;
+	var isVIP = false;
 	res.render('index', { 
 		title: 'XX Studio',
-		xxstudio: 'XX Studio'
+		xxstudio: 'XX Studio',
+		loggedIn: loggedIn,
+		isVIP: isVIP
 	});
 });
 
@@ -112,7 +116,7 @@ router.get('/contact', function(req, res, next) {
 
 
 
-router.post('/login', function(req, res) {
+router.post('/', function(req, res) {
 	var username = req.body.userName; // 從請求中獲取用戶名
 	var password = req.body.password; // 從請求中獲取密碼
 	console.log(username);
@@ -130,34 +134,35 @@ router.post('/login', function(req, res) {
 	  database: 'mytestproject'
 	});
 	
-	connection.connect(function(err) {
+	connection.query('SELECT * FROM users WHERE email = ? AND password = ?', [username, password], function(err, results) {
 	  if (err) {
-		console.error('Error connecting to MySQL database: ' + err.stack);
-		return;
+		console.error('Error executing query: ' + err.stack);
+		return res.status(500).send('Server Error');
 	  }
-	
-	  console.log('Connected to MySQL database as ID: ' + connection.threadId);
-	
-	  // 在这里执行你的数据库查询操作
-	
-	  connection.end();
+	  if (results.length > 0) {
+		var user = results[0]; // 假设只取第一条记录作为用户信息
+		var loggedIn = true;
+		var isVIP = false;
+		if(user.role=='3'){
+			isVIP = true;
+			console.log('isVIP：', isVIP);
+		}
+
+		res.render('index', { 
+			title: 'XX Studio',
+			xxstudio: 'XX Studio',
+			loggedIn: loggedIn,
+			isVIP: isVIP
+		});
+		// // 登入成功后重定向到首页
+		// res.redirect('/');
+	  } else {
+		// 登入失敗
+		return res.status(401).send('Invalid credentials');
+	  }
 	});
-	// connection.query('SELECT * FROM users WHERE email = ? AND password = ?', [username, password], function(err, results) {
-	//   if (err) {
-	// 	console.error('Error executing query: ' + err.stack);
-	// 	return res.status(500).send('Server Error');
-	//   }
   
-	//   if (results.length > 0) {
-	// 	// 登入成功
-	// 	return res.status(200).send('Login successful');
-	//   } else {
-	// 	// 登入失敗
-	// 	return res.status(401).send('Invalid credentials');
-	//   }
-	// });
-  
-	// connection.end();
+	connection.end();
   });
   
 

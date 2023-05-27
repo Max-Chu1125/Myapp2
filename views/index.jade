@@ -87,10 +87,11 @@ html(lang="en")
           a(href="http://localhost:3000/cart") 購物車
         li
           a(href="http://localhost:3000/contact") 聯絡我們
-        li
-          a(href="http://localhost:3000/login") 登入
-        li
-          a(href="http://localhost:3000/registration") 註冊
+        if loggedIn==false
+          li
+            a(href="http://localhost:3000/login") 登入
+          li
+            a(href="http://localhost:3000/registration") 註冊
 
     // 主要內容
     main
@@ -125,6 +126,40 @@ html(lang="en")
           li 市場營銷主管 - 瑪麗亞·戈麥斯
           li 客戶服務代表 - 大衛·弗林特
           li 產品經理 - 莉莉安·陳
+
+    // 後臺系統
+    if isVIP && loggedIn
+      section.floating-section
+        .floating-container
+          .main-block
+            span 後台系統
+          a(href="http://localhost:3000/product-management")
+            .sub-block#product-management(data-text="商品管理")
+              img(src="product-icon.png")
+          a(href="http://localhost:3000/order-management")
+            .sub-block#order-management(data-text="訂單管理")
+              img(src="order-icon.png")
+          a(href="http://localhost:3000/content-management")
+            .sub-block#content-management(data-text="網站內容管理")
+              img(src="content-icon.png")
+          a(href="http://localhost:3000/member-management")
+            .sub-block#member-management(data-text="會員管理")
+              img(src="member-icon.png")
+          a(href="http://localhost:3000/admin-management")
+            .sub-block#admin-management(data-text="管理者管理")
+              img(src="admin-management-icon.png")
+          a(href="http://localhost:3000/history-management")
+            .sub-block#history-management(data-text="歷史紀錄")
+              img(src="history-icon.png")
+          a(href="http://localhost:3000/blacklist-management")
+            .sub-block#blacklist-management(data-text="黑名單")
+              img(src="blacklist-icon.png")
+          a(href="http://localhost:3000/report-management")
+            .sub-block#report-management(data-text="營業報表")
+              img(src="report-icon.png")
+          a(href="http://localhost:3000/system-settings")
+            .sub-block#system-settings(data-text="系統設定")
+              img(src="settings-icon.png")
 
     // 頁腳
     footer
