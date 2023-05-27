@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const session = require('express-session');
 
+
 // 配置会话中间件
 router.use(session({
 	secret: '123123123123',
@@ -9,15 +10,23 @@ router.use(session({
 	saveUninitialized: true,
   }));
 
+router.use(function(req, res, next) {
+if (!req.session.user) {
+	req.session.user = {
+	loggedIn: false,
+	isVIP: false
+	};
+}
+next();
+});
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	var loggedIn = false;
-	var isVIP = false;
 	res.render('index', { 
 		title: 'XX Studio',
 		xxstudio: 'XX Studio',
-		loggedIn: loggedIn,
-		isVIP: isVIP
+		loggedIn: req.session.user.loggedIn,
+		isVIP: req.session.user.isVIP
 	});
 });
 
@@ -28,7 +37,9 @@ router.get('/', function(req, res, next) {
 router.get('/products', function(req, res, next) {
 	res.render('products', { 
 		title: 'products',
-		xxstudio: 'XX Studio'
+		xxstudio: 'XX Studio',
+		loggedIn: req.session.user.loggedIn,
+		isVIP: req.session.user.isVIP
 	});
 });
 
@@ -40,29 +51,35 @@ router.get('/login', function(req, res, next) {
 	res.render('login', { 
 		title: 'Login',
 		xxstudio: 'XX Studio',
-		loggedIn: loggedIn,
-		isVIP: isVIP
+		loggedIn: req.session.user.loggedIn,
+		isVIP: req.session.user.isVIP
 	});
 });
 //註冊頁面
 router.get('/registration', function(req, res, next) {
 	res.render('registration', { 
 		title: 'Registion',
-		xxstudio: 'XX Studio'
+		xxstudio: 'XX Studio',
+		loggedIn: req.session.user.loggedIn,
+		isVIP: req.session.user.isVIP
 	});
 });
 //購物車頁面
 router.get('/cart', function(req, res, next) {
 	res.render('cart', { 
 		title: 'Cart',
-		xxstudio: 'XX Studio'
+		xxstudio: 'XX Studio',
+		loggedIn: req.session.user.loggedIn,
+		isVIP: req.session.user.isVIP
 	});
 });
 //聯絡頁面
 router.get('/contact', function(req, res, next) {
 	res.render('contact', { 
 		title: 'Contact us',
-		xxstudio: 'XX Studio'
+		xxstudio: 'XX Studio',
+		loggedIn: req.session.user.loggedIn,
+		isVIP: req.session.user.isVIP
 	});
 });
 
