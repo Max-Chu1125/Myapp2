@@ -17,8 +17,6 @@ html(lang="en")
       // 在這裡可以添加 CSS 樣式
   body
     header
-      // 頁面標題
-      h1= title
 
       // 導航欄
       nav
@@ -35,18 +33,38 @@ html(lang="en")
             a(href="http://localhost:3000/login") 登入
           li
             a(href="http://localhost:3000/registration") 註冊
-    
-    section.registration-section
+    .registration-section
       .registration-container
-        h2 註冊會員
-        form
+        .banner
+          .left-container.shadow 
+            h2
+              a(href="/login") 登入
+          .right-container
+            h2 註冊
+
+        h2 
+        form(action="/registration", method="post")
           label(for="registration-email") 電子郵件：
-          input(type="email", id="registration-email", required)
+          input(type="email", id="registration-email", name="email", required)
           br
           label(for="registration-password") 密碼：
-          input(type="password", id="registration-password", required)
+          input(type="password", id="registration-password", name="password", required)
           br
           button(type="submit") 註冊
+
+
+
+    //- section.registration-section
+    //-   .registration-container
+    //-     h2 註冊會員
+    //-     form
+    //-       label(for="registration-email") 電子郵件：
+    //-       input(type="email", id="registration-email", required)
+    //-       br
+    //-       label(for="registration-password") 密碼：
+    //-       input(type="password", id="registration-password", required)
+    //-       br
+    //-       button(type="submit") 註冊
 
     // 頁腳
     footer

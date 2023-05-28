@@ -68,21 +68,44 @@ html(lang="en")
               img(src="settings-icon.png")
 
 
+    //- // 登入表格
+    //- section.login-section
+    //-   .login-container
+    //-     h2 登入會員
+    //-     form(action="/", method="post")
+    //-       label(for="login-email") 電子郵件：
+    //-       input(type="email", id="login-email",name='userName', required)
+    //-       br
+    //-       label(for="login-password") 密碼：
+    //-       input(type="password", id="login-password", name='password',required)
+    //-       br
+    //-       button(type="submit") 登入
+    //-     .links
+    //-       p 還沒有帳號？立即
+    //-       a(href="http://localhost:3000/registration") 註冊
+
     // 登入表格
     section.login-section
       .login-container
-        h2 登入會員
+        .banner
+          .left-container
+            h2 登入
+          .right-container.shadow 
+            h2
+              a(href="/registration") 註冊
+
+        h2 
         form(action="/", method="post")
           label(for="login-email") 電子郵件：
-          input(type="email", id="login-email",name='userName', required)
+          input(type="email", id="login-email", name='userName', required)
           br
           label(for="login-password") 密碼：
-          input(type="password", id="login-password", name='password',required)
+          input(type="password", id="login-password", name='password', required)
           br
           button(type="submit") 登入
-        .links
-          p 還沒有帳號？立即
-          a(href="http://localhost:3000/registration") 註冊
+
+
+
 
 
 

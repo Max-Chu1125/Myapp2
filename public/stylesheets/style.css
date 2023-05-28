@@ -197,6 +197,38 @@ footer p {
   overflow: hidden; /* 隱藏超出範圍的內容 */
 }
 
+/* 登入註冊橫幅 */
+.banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 80px;
+  background-color: #f7f7f7;
+  color: #f7f7f7;
+  display: flex;
+  width: 94.55%; /* 與 .login-section 相同寬度 */
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+/* 註冊橫幅 */
+.registration-container .left-container,
+.registration-container .right-container {
+  text-align: center;
+  width: 50%;
+}
+/* 註冊橫幅 */
+.login-container .left-container,
+.login-container .right-container {
+  text-align: center;
+  width: 50%;
+}
+/* 橫幅陰影 */
+.banner .left-container.shadow,
+.banner .right-container.shadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 .login-container {
   max-width: 400px;
   padding: 80px 160px; /* 增加上方的 padding */
@@ -208,6 +240,8 @@ footer p {
   border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .login-container h2 {
   text-align: center;
@@ -252,6 +286,80 @@ footer p {
 
 .login-container,
 .registration-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+/* 註冊表單 */
+
+.registration-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.registration-container {
+  max-width: 400px;
+  padding: 80px 160px;
+  margin-top: 0;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.registration-container h2 {
+  text-align: center;
+}
+
+.registration-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.registration-container label {
+  margin-bottom: 10px;
+}
+
+.registration-container input[type="email"],
+.registration-container input[type="password"] {
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.registration-container button {
+  padding: 20px;
+  background-color: #ccc;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.registration-container button:hover {
+  background-color: #aaa;
+}
+
+.registration-container .links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.registration-container .links a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.registration-container,
+.login-container {
   width: 50%;
   margin: 0 auto;
 }
